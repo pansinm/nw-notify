@@ -95,14 +95,13 @@ var config = {
     cursor: 'default'
   },
   defaultWindow: {
-    'always-on-top': true,
-    'visible-on-all-workspaces': true,
+    'always_on_top': true,
+    'visible_on_all_workspaces': true,
     'show_in_taskbar': process.platform == "darwin",
     resizable: false,
     show: false,
     frame: false,
-    transparent: true,
-    toolbar: false
+    transparent: true
   },
   htmlTemplate: '<html>\n'
   + '<head></head>\n'

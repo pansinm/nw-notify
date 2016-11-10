@@ -520,8 +520,8 @@ function getWindow() {
           setStyleOnDomElement(config.defaultStyleContainer, container)
           // Size and radius
           var style = {
-            height: config.height - 2 * config.defaultStyleContainer.padding - 4,
-            width: config.width - 2 * config.defaultStyleContainer.padding - 4,
+            height: config.height - 2 * config.borderRadius - 2 * config.defaultStyleContainer.padding,
+            width: config.width - 2 * config.borderRadius - 2 * config.defaultStyleContainer.padding,
             borderRadius: config.borderRadius + 'px'
           }
           setStyleOnDomElement(style, container)

@@ -104,7 +104,7 @@ var config = {
   },
   htmlTemplate: '<html>\n'
   + '<head></head>\n'
-  + '<body style="overflow: hidden; -webkit-user-select: none;">\n'
+  + '<body style="margin: 0; overflow: hidden; -webkit-user-select: none;">\n'
   + '<div id="container">\n'
   + ' <img src="" id="appIcon" />\n'
   + ' <img src="" id="image" />\n'
@@ -520,8 +520,8 @@ function getWindow() {
           setStyleOnDomElement(config.defaultStyleContainer, container)
           // Size and radius
           var style = {
-            height: config.height - 2 * config.borderRadius - 2 * config.defaultStyleContainer.padding,
-            width: config.width - 2 * config.borderRadius - 2 * config.defaultStyleContainer.padding,
+            height: config.height - 2 * config.defaultStyleContainer.padding - 4,
+            width: config.width - 2 * config.defaultStyleContainer.padding - 4,
             borderRadius: config.borderRadius + 'px'
           }
           setStyleOnDomElement(style, container)

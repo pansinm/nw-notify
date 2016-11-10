@@ -97,7 +97,6 @@ var config = {
   defaultWindow: {
     'always_on_top': true,
     'visible_on_all_workspaces': true,
-    'show_in_taskbar': process.platform == "darwin",
     resizable: false,
     show: false,
     frame: false,
@@ -126,15 +125,7 @@ function setConfig(customConfig) {
 
 // Little helper functions
 function updateAppPath() {
-  // Get url of current page in nwjs
-  var pathToAppIndex = window.location.href
-  // Remove everything after '#'
-  var urlParts = pathToAppIndex.split('#')
-  pathToAppIndex = urlParts[0]
-  var pathSegemnts = pathToAppIndex.split('/')
-  // Remove last part (e.g. index.html of app)
-  pathSegemnts.pop()
-  config.appPath = pathSegemnts.join('/') + '/'
+  config.appPath = process.cwd() + '/';
   return config.appPath
 }
 
@@ -479,7 +470,8 @@ function moveNotificationAnimation(i, done) {
       return done(null, 'done')
     }
     // Move one step down
-    notification.moveTo(config.firstPos.x, startY + curStep * step)
+    var y = parseInt(startY + curStep * step);
+    notification.moveTo(config.firstPos.x, y)
     curStep++
   }, config.animationStepMs)
 }
@@ -512,6 +504,8 @@ function getWindow() {
       windowProperties.width = config.width
       windowProperties.height = config.height
       gui.Window.open(getTemplatePath(), config.defaultWindow, function (newWindow) {
+        // https://github.com/nwjs/nw.js/issues/4898
+        newWindow.setShowInTaskbar(false)
         notificationWindow = newWindow;
         // Return once DOM is loaded
         notificationWindow.on('loaded', function () {

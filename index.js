@@ -104,7 +104,7 @@ var config = {
   },
   htmlTemplate: '<html>\n'
   + '<head></head>\n'
-  + '<body style="overflow: hidden; -webkit-user-select: none;">\n'
+  + '<body style="margin: 0; overflow: hidden; -webkit-user-select: none;">\n'
   + '<div id="container">\n'
   + ' <img src="" id="appIcon" />\n'
   + ' <img src="" id="image" />\n'
